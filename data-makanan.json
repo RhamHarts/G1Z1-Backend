@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Sate Padang",
+        "carbohydrates_total_g": 6.79,
+        "cholesterol_mg": 47,
+        "fat_saturated_g": 2.463,
+        "fat_total_g": 6.63,
+        "fiber_g": 1.2,
+        "potassium_mg": 390,
+        "sodium_mg": 347,
+        "sugar_g": 0.21,
+        "protein_g": 18.01,
+        "calories_kcal": 161
+    },
+    {
+        "name": "Nasi Uduk",
+        "carbohydrates_total_g": 28,
+        "cholesterol_mg": 0,
+        "fat_saturated_g": 0,
+        "fat_total_g": 12,
+        "fiber_g": 1,
+        "potassium_mg": 0,
+        "sodium_mg": 0,
+        "sugar_g": 0,
+        "protein_g": 3
+    },
+    {
+        "name": "Ketoprak",
+        "carbohydrates_total_g": 50.48,
+        "cholesterol_mg": 16,
+        "fat_saturated_g": 2.931,
+        "fat_total_g": 15.34,
+        "fiber_g": 3.9,
+        "potassium_mg": 367,
+        "sodium_mg": 391,
+        "sugar_g": 6.65,
+        "protein_g": 15.59
+    }
+]
