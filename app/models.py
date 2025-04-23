@@ -20,6 +20,11 @@ class LocalFood(db.Model):
     def to_dict(self):
         """ Mengubah objek LocalFood menjadi dictionary JSON """
         image_path = self.image.replace("\\", "/") if self.image else None  # Fix path Windows
+    
+        # Pastikan path tidak ada double "uploads/uploads/"
+        if image_path and image_path.startswith("uploads/"):
+            image_path = image_path.replace("uploads/", "", 1)
+
         return {
             "id": self.id,
             "name": self.name,

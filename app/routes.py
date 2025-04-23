@@ -1,10 +1,10 @@
-from flask import Blueprint, request, jsonify,send_from_directory
+from flask import Blueprint, abort, request, jsonify,send_from_directory
 import requests
 import os
 from dotenv import load_dotenv
 from flask import Blueprint, request, jsonify
 from app.models import db, LocalFood
-from werkzeug.utils import secure_filename
+from werkzeug.utils import secure_filename,safe_join
 load_dotenv()
 
 UPLOAD_FOLDER = "uploads"
@@ -141,7 +141,14 @@ def delete_local_food(food_id):
     db.session.commit()
 
     return jsonify({"message": f"Makanan '{food.name}' berhasil dihapus!"}), 200
+
 @food_bp.route("/uploads/<filename>")
 def get_uploaded_file(filename):
-    """ Menampilkan gambar yang disimpan di folder uploads """
-    return send_from_directory("uploads", filename)
+    """ Menampilkan gambar dari folder uploads """
+    upload_folder = os.path.join(os.getcwd(), "uploads")  # Path absolute ke folder uploads
+    file_path = safe_join(upload_folder, filename)  # Menghindari akses di luar folder
+
+    if not os.path.exists(file_path):  # Cek apakah file ada
+        abort(404)  # Jika tidak ada, return 404
+    
+    return send_from_directory(upload_folder, filename)
